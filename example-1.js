@@ -5,6 +5,9 @@
 let variable = 'value';
 
 function scope() {
+    // "someVar" is a "local variable" to the "scope" function, which means it can
+    // be accessed anywhere inside of the body of this function or functions declared
+    // inside of this function
     let someVar = 'foo';
     
     // "variable" can be accessed in this function...
@@ -22,7 +25,7 @@ function scope() {
             // ... and this function, too.
             console.log(variable);
             
-            // The parameter "C" is also a "local variable" for the function "b", and 
+            // The parameter "C" is also a local variable for the function "b", and 
             // can be accessed inside of that function, but not outside of it like any
             // other variable
         }
@@ -44,9 +47,13 @@ scope();
 
 // OBJECT CONTEXT
 
+// Classes are like blueprints for objects--you set up your classes to have the shape of
+// the objects you want to make.
 class Context {
+    // Constructors are run only once when using the "new" keyword on a class
     constructor(num) {
-        // Fields are initialized in the constructor
+        // Class "fields" are initialized in the constructor and when a class is "instantiated"
+        // with the "new" keyword, the fields become properties of the new object.
         this.initialized = 'static value';
         
         // Constructor parameters are useful in assigning different or unique values to
@@ -59,6 +66,7 @@ class Context {
         this.getADifferentField = () => this.field + ' somethingElse';
     }
     
+    // Class "methods" are functions you can access on each object from a class
     getField() {
         return this.field;
     }
